@@ -16,8 +16,9 @@ Yes, some of these are unnecessary, just my standard practice for keeping up to 
 7. Clone this repo `git clone https://github.com/buee86/jetson_snmp.git`, which should put a new folder in your current directory, *jetson_nano*
 8. Copy the Python files to the directory `cp jetson_nano/*.py ./`
 9. Copy the modified snmpd.conf file to the current directory `cp jetson_nano/*.conf ./`
-10. Ensure proper permissions*
-11. Restart snmpd to take on the new conf file `service snmpd restart`
+10. Edit the snmpd.conf. Anything in square brackets needs to be filled out. `sysLocation` and `sysContact` are optional, but you **will** need to provide a community name, the default in the file is read-only.
+11. Ensure proper permissions*
+12. Restart snmpd to take on the new conf file `service snmpd restart`
 
 \* - The permissions is a whole weird thing. I *believe* the user/group running SNMPd is "Debian-snmp". This can be checked with `ps aux | grep snmp`. This user needs the ability to execute the .py scripts. I believe I added my base user to the "Debian-snmp" group which allowed me to edit the files while still allowing the "Debian-snmp" user to execute the scripts. As for the snmpd.conf file, just match permissions with the original.
 
