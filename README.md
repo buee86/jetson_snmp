@@ -10,11 +10,11 @@ Of course, any commands are to be executed on the Nano, either directly or via S
 Yes, some of these are unnecessary, just my standard practice for keeping up to date and getting rid of clutter
 2. Install snmpd on the Nano `sudo apt install snmpd`
 3. Install *python3*, `sudo apt install python3` --- **The scripts will not work with python2, although they could with some mild modifications**
-4. I would recommend becoming root at this point just because it's easier. The remainder of the commands are assuming that you're root. If you do not want to become root, tack the "sudo" on the front of each command
+4. I would recommend becoming root at this point just because it's easier. The remainder of the commands are assuming that you're root. **If you do not want to become root, tack the "sudo" on the front of each command**
 5. Might as well go directly to the snmp folder `cd /etc/snmp`
 6. Make a backup of the default snmpd.conf file `mv snmpd.conf snmpd.conf.default`
 7. Clone this repo `git clone https://github.com/buee86/jetson_snmp.git`, which should put a new folder in your current directory, *jetson_nano*
-8. Copy the Python files to the directory `cp jetson_nano/*.py ./`
+8. Copy the Python files to the directory `cp jetson_snmp/*.py ./`
 9. Copy the modified snmpd.conf file to the current directory `cp jetson_nano/*.conf ./`
 10. Edit the snmpd.conf. Anything in square brackets needs to be filled out. `sysLocation` and `sysContact` are optional, but you **will** need to provide a community name, the default in the file is read-only.
 11. Ensure proper permissions*
